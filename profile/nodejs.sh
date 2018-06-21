@@ -28,7 +28,7 @@ detect_memory() {
 
 install_oracle_libraries() {
   echo "Installing oracle libraries"
-  export BUILD_DIR=$HOME/.cloudfoundry/
+  local BUILD_DIR=$HOME/.cloudfoundry/
   mkdir -p $BUILD_DIR/oracle
   cd $BUILD_DIR/oracle
   basic_download_url="https://s3.amazonaws.com/covisintrnd.com-software/instantclient-basic.zip"
