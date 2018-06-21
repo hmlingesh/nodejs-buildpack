@@ -46,7 +46,7 @@ detect_memory() {
   ln -s libclntsh.so.12.1 libclntsh.so
   echo $PWD
 
-export PATH="$HOME/.cloudfoundry/node/bin:$HOME/.heroku/yarn/bin:$PATH:$HOME/bin:$HOME/node_modules/.bin"
+export PATH="$HOME/.cloudfoundry/node/bin:$HOME/.cloudfoundry/yarn/bin:$PATH:$HOME/bin:$HOME/node_modules/.bin"
 export NODE_HOME="$HOME/.cloudfoundry/node"
 export NODE_ENV=${NODE_ENV:-production}
 
