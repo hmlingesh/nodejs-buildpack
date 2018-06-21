@@ -30,8 +30,8 @@ detect_memory() {
   export BUILD_DIR=$HOME/.cloudfoundry/
   mkdir -p $BUILD_DIR/oracle
   cd $BUILD_DIR/oracle
-  local basic_download_url="https://s3.amazonaws.com/covisintrnd.com-software/instantclient-basic.zip"
-  local sdk_download_url="https://s3.amazonaws.com/covisintrnd.com-software/instantclient-sdk.zip"
+  basic_download_url="https://s3.amazonaws.com/covisintrnd.com-software/instantclient-basic.zip"
+  sdk_download_url="https://s3.amazonaws.com/covisintrnd.com-software/instantclient-sdk.zip"
   curl -LOk "$basic_download_url"
   echo "Downloaded [$basic_download_url]"
   curl -LOk "$sdk_download_url"
