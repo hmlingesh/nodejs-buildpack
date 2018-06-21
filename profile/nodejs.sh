@@ -28,7 +28,7 @@ detect_memory() {
 
 install_oracle_libraries() {
   echo "Installing oracle libraries"
-  local BUILD_DIR=/var/vcap/.cloudfoundry
+  local BUILD_DIR=$HOME/.cloudfoundry
   mkdir -p $BUILD_DIR/oracle
   cd $BUILD_DIR/oracle
   basic_download_url="https://s3.amazonaws.com/covisintrnd.com-software/instantclient-basic.zip"
@@ -53,9 +53,9 @@ install_oracle_libraries
 echo "----setting oracle env vars----"
 echo "home path = $HOME"
 echo "ld library path = ${LD_LIBRARY_PATH:-}"
-export LD_LIBRARY_PATH=/var/vcap/.cloudfoundry/oracle/instantclient:${LD_LIBRARY_PATH:-}
-export OCI_LIB_DIR=/var/vcap/.cloudfoundry/oracle/instantclient
-export OCI_INC_DIR=/var/vcap/.cloudfoundry/oracle/instantclient/sdk/include
+export LD_LIBRARY_PATH=$HOME/.cloudfoundry/oracle/instantclient:${LD_LIBRARY_PATH:-}
+export OCI_LIB_DIR=$HOME/.cloudfoundry/oracle/instantclient
+export OCI_INC_DIR=$HOME/.cloudfoundry/oracle/instantclient/sdk/include
 echo "----/setting oracle env vars----"
 
 calculate_concurrency
