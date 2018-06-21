@@ -26,6 +26,37 @@ detect_memory() {
   esac
 }
 
+  echo "Installing oracle libraries"
+  export BUILD_DIR=$HOME/.cloudfoundry/
+  mkdir -p $BUILD_DIR/oracle
+  cd $BUILD_DIR/oracle
+  local basic_download_url="https://s3.amazonaws.com/covisintrnd.com-software/instantclient-basic.zip"
+  local sdk_download_url="https://s3.amazonaws.com/covisintrnd.com-software/instantclient-sdk.zip"
+  curl -LOk "$basic_download_url"
+  echo "Downloaded [$basic_download_url]"
+  curl -LOk "$sdk_download_url"
+  echo "Downloaded [$sdk_download_url]"
+  echo $PWD
+  echo "unzipping libraries"
+   unzip instantclient-basic.zip
+   unzip instantclient-sdk.zip
+  mv instantclient_12_2 instantclient
+  cd instantclient
+  echo $PWD
+  ln -s libclntsh.so.12.1 libclntsh.so
+  echo $PWD
+
+export PATH="$HOME/.cloudfoundry/node/bin:$HOME/.heroku/yarn/bin:$PATH:$HOME/bin:$HOME/node_modules/.bin"
+export NODE_HOME="$HOME/.cloudfoundry/node"
+export NODE_ENV=${NODE_ENV:-production}
+
+echo "----setting oracle env vars----"
+echo "home path = $HOME"
+echo "ld library path = ${LD_LIBRARY_PATH:-}"
+export LD_LIBRARY_PATH=$HOME/.cloudfoundry/oracle/instantclient:${LD_LIBRARY_PATH:-}
+export OCI_LIB_DIR=$HOME/.cloudfoundry/oracle/instantclient
+export OCI_INC_DIR=$HOME/.cloudfoundry/oracle/instantclient/sdk/include
+echo "----/setting oracle env vars----"
 
 calculate_concurrency
 
