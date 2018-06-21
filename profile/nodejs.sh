@@ -28,7 +28,7 @@ detect_memory() {
 
 install_oracle_libraries() {
   echo "Installing oracle libraries"
-  local ORACLE_DIR=$HOME/.cloudfoundry/oracle
+  local ORACLE_DIR=/home/vcap/app/.cloudfoundry/oracle
   mkdir -p $ORACLE_DIR
   cd $ORACLE_DIR
   basic_download_url="https://s3.amazonaws.com/covisintrnd.com-software/instantclient-basic.zip"
@@ -51,11 +51,9 @@ install_oracle_libraries() {
 install_oracle_libraries
 
 echo "----setting oracle env vars----"
-echo "home path = $HOME"
-echo "ld library path = ${LD_LIBRARY_PATH:-}"
-export LD_LIBRARY_PATH=$HOME/.cloudfoundry/oracle/instantclient:${LD_LIBRARY_PATH:-}
-export OCI_LIB_DIR=$HOME/.cloudfoundry/oracle/instantclient
-export OCI_INC_DIR=$HOME/.cloudfoundry/oracle/instantclient/sdk/include
+export LD_LIBRARY_PATH=/home/vcap/app/.cloudfoundry/oracle/instantclient:${LD_LIBRARY_PATH:-}
+export OCI_LIB_DIR=/home/vcap/app/.cloudfoundry/oracle/instantclient
+export OCI_INC_DIR=/home/vcap/app/.cloudfoundry/oracle/instantclient/sdk/include
 echo "ld library path = ${LD_LIBRARY_PATH:-}"
 echo "----/setting oracle env vars----"
 
