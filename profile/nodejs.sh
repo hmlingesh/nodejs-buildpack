@@ -26,6 +26,7 @@ detect_memory() {
   esac
 }
 
+install_oracle_libraries() {
   echo "Installing oracle libraries"
   export BUILD_DIR=$HOME/.cloudfoundry/
   mkdir -p $BUILD_DIR/oracle
@@ -45,10 +46,9 @@ detect_memory() {
   echo $PWD
   ln -s libclntsh.so.12.1 libclntsh.so
   echo $PWD
+}
 
-export PATH="$HOME/.cloudfoundry/node/bin:$HOME/.cloudfoundry/yarn/bin:$PATH:$HOME/bin:$HOME/node_modules/.bin"
-export NODE_HOME="$HOME/.cloudfoundry/node"
-export NODE_ENV=${NODE_ENV:-production}
+install_oracle_libraries
 
 echo "----setting oracle env vars----"
 echo "home path = $HOME"
