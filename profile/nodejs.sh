@@ -56,6 +56,7 @@ echo "ld library path = ${LD_LIBRARY_PATH:-}"
 export LD_LIBRARY_PATH=$HOME/.cloudfoundry/oracle/instantclient:${LD_LIBRARY_PATH:-}
 export OCI_LIB_DIR=$HOME/.cloudfoundry/oracle/instantclient
 export OCI_INC_DIR=$HOME/.cloudfoundry/oracle/instantclient/sdk/include
+echo "ld library path = ${LD_LIBRARY_PATH:-}"
 echo "----/setting oracle env vars----"
 
 calculate_concurrency
