@@ -53,9 +53,9 @@ install_oracle_libraries
 echo "----setting oracle env vars----"
 echo "home path = $HOME"
 echo "ld library path = ${LD_LIBRARY_PATH:-}"
-export LD_LIBRARY_PATH=$HOME/.cloudfoundry/oracle/instantclient:${LD_LIBRARY_PATH:-}
-export OCI_LIB_DIR=$HOME/.cloudfoundry/oracle/instantclient
-export OCI_INC_DIR=$HOME/.cloudfoundry/oracle/instantclient/sdk/include
+export LD_LIBRARY_PATH=/var/vcap/.cloudfoundry/oracle/instantclient:${LD_LIBRARY_PATH:-}
+export OCI_LIB_DIR=/var/vcap/.cloudfoundry/oracle/instantclient
+export OCI_INC_DIR=/var/vcap/.cloudfoundry/oracle/instantclient/sdk/include
 echo "----/setting oracle env vars----"
 
 calculate_concurrency
